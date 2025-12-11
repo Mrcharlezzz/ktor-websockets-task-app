@@ -2,10 +2,9 @@ package com.example
 
 import com.example.db.TaskDAO
 import com.example.db.TaskTable
-import io.ktor.server.application.Application
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
-import org.jetbrains.exposed.sql.Transaction
+import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
 /**
@@ -15,7 +14,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
  * - Creates the `task` table if missing.
  * - Seeds example tasks when the table is empty.
  */
-fun Application.configureDatabases() {
+fun configureDatabases() {
     Database.connect(
         url = "jdbc:sqlite:./data/tasks.db",
         driver = "org.sqlite.JDBC"
@@ -26,7 +25,8 @@ fun Application.configureDatabases() {
         SchemaUtils.create(TaskTable)
 
         // Seed initial data only when the table is empty
-        seedTasks()
+        if (TaskTable.selectAll().empty())
+            seedTasks()
     }
 }
 
