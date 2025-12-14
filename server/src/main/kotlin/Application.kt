@@ -12,5 +12,5 @@ fun Application.module() {
     val repository = SqliteTaskRepository()
     configureDatabases()
     configureSockets(repository)
-    configureRouting()
+    configureRouting(repository)
 }

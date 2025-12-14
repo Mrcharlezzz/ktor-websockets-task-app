@@ -1,6 +1,7 @@
 package com.example
 
 import io.ktor.client.request.*
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import kotlin.test.Test
@@ -13,9 +14,8 @@ class ApplicationTest {
         application {
             module()
         }
-        client.get("/").apply {
-            assertEquals(HttpStatusCode.OK, status)
-        }
+        val res = client.get("/")
+        assertEquals(HttpStatusCode.OK, res.status, "Body: ${res.bodyAsText()}")
+        assertEquals("Healthy", res.bodyAsText())
     }
-
 }
