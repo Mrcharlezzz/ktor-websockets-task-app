@@ -5,9 +5,9 @@ import com.example.db.TaskDAO
 import com.example.db.TaskTable
 import com.example.db.daoToModel
 import com.example.db.suspendTransaction
-import model.Priority
-import model.Task
-import model.TaskRepository
+import com.example.model.Priority
+import com.example.model.Task
+import com.example.model.TaskRepository
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.deleteWhere
 

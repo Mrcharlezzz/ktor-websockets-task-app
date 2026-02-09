@@ -8,8 +8,8 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import model.Task
-import model.TaskRepository
+import com.example.model.Task
+import com.example.model.TaskRepository
 
 /**
  * Configures plain HTTP routing.

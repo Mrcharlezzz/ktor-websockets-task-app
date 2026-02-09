@@ -8,8 +8,8 @@ import io.ktor.websocket.CloseReason
 import io.ktor.websocket.close
 import kotlinx.coroutines.delay
 import kotlinx.serialization.json.Json
-import model.Task
-import model.TaskRepository
+import com.example.model.Task
+import com.example.model.TaskRepository
 import java.util.Collections
 import kotlin.time.Duration.Companion.seconds
 

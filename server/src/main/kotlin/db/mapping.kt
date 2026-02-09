@@ -1,8 +1,8 @@
 package com.example.db
 
 import kotlinx.coroutines.Dispatchers
-import model.Priority
-import model.Task
+import com.example.model.Priority
+import com.example.model.Task
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID
@@ -22,20 +22,19 @@ object TaskTable : IntIdTable("task") {
 /**
  * Exposed entity for the `task` table (example entity, not used directly).
  */
-class TaskEntity(id: EntityID<Int>) : IntEntity(id) {
-    companion object : IntEntityClass<TaskEntity>(TaskTable)
+    class TaskEntity(id: EntityID<Int>) : IntEntity(id) {
+        companion object : IntEntityClass<TaskEntity>(TaskTable)
 
-    var name by TaskTable.name
-    var description by TaskTable.description
-    var priority by TaskTable.priority
-}
+        var name by TaskTable.name
+        var description by TaskTable.description
+        var priority by TaskTable.priority
+    }
 
 /**
  * Exposed DAO used by the repository layer.
  */
 class TaskDAO(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<TaskDAO>(TaskTable)
-
     var name by TaskTable.name
     var description by TaskTable.description
     var priority by TaskTable.priority

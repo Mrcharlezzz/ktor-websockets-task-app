@@ -1,4 +1,4 @@
-package model
+package com.example.model
 
 /**
  * In-memory `TaskRepository` for testing and demos.
@@ -27,7 +27,7 @@ class RawTaskRepository : TaskRepository{
     /** Adds a new [task]; throws if a task with the same name exists. */
     override suspend fun addTask(task: Task) {
         if (taskByName(task.name) != null) {
-            throw IllegalStateException("Cannot duplicate task names!")
+            throw IllegalStateException("Cannot duplicate task names")
         }
         tasks.add(task)
     }

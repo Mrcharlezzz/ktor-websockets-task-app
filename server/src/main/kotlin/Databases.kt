@@ -16,7 +16,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
  */
 fun configureDatabases() {
     Database.connect(
-        url = "jdbc:sqlite:./data/tasks.db",
+        url = "jdbc:sqlite:./server/data/tasks.db",
         driver = "org.sqlite.JDBC"
     )
 
